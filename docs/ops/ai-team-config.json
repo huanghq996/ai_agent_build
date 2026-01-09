@@ -1,0 +1,135 @@
+{
+  "version": "1.0.0",
+  "project": {
+    "name": "agb-ai-team-system",
+    "repoType": "monorepo",
+    "baseBranch": "main",
+    "timezone": "Asia/Shanghai"
+  },
+  "toolchain": {
+    "node": {
+      "versionFile": ".nvmrc",
+      "packageManager": "pnpm",
+      "pnpmVersion": "9.15.0",
+      "corepack": true
+    },
+    "java": {
+      "version": 21,
+      "mavenWrapper": false,
+      "mavenArgs": "-B -ntp"
+    }
+  },
+  "workflow": {
+    "mode": "full-auto",
+    "usePR": false,
+    "requireRemote": false,
+    "mergeStrategy": "squash",
+    "amendOnReviewFix": true,
+    "maxAutoFixCyclesPerTodo": 5,
+    "execution": {
+      "parallelTodos": false,
+      "maxParallel": 1
+    },
+    "git": {
+      "branchPrefix": "",
+      "branchTypes": [
+        "feat",
+        "fix",
+        "chore"
+      ],
+      "commitScopes": [
+        "web",
+        "server",
+        "contract",
+        "ops"
+      ],
+      "allowRebase": false
+    }
+  },
+  "gates": {
+    "required": [
+      "lint",
+      "test",
+      "build",
+      "migrationCheck",
+      "contractCheck",
+      "stateSchemaCheck",
+      "configSchemaCheck"
+    ],
+    "commands": {
+      "check": "./scripts/check",
+      "lint": "./scripts/lint",
+      "test": "./scripts/test",
+      "build": "./scripts/build",
+      "migrationCheck": "./scripts/migration-check",
+      "contractCheck": "./scripts/contract-check",
+      "stateSchemaCheck": "./scripts/state-validate",
+      "configSchemaCheck": "./scripts/config-validate"
+    },
+    "policies": {
+      "failFast": true,
+      "allowSkip": [
+        "test"
+      ],
+      "skipReasonRequired": true
+    }
+  },
+  "logging": {
+    "dir": "docs/ops/logs",
+    "keepDays": 30,
+    "keepLatestPerTodo": 50,
+    "captureStdout": true,
+    "captureStderr": true,
+    "redactions": {
+      "enabled": true,
+      "patterns": [
+        "(?i)password\\s*[:=]\\s*[^\\s]+",
+        "(?i)token\\s*[:=]\\s*[^\\s]+",
+        "(?i)secret\\s*[:=]\\s*[^\\s]+",
+        "(?i)authorization\\s*[:=]\\s*[^\\s]+"
+      ]
+    }
+  },
+  "contracts": {
+    "openapiPath": "packages/api-contract/openapi.yaml",
+    "errorCodesPath": "packages/api-contract/error-codes.json",
+    "spectralRulesPath": "packages/api-contract/.spectral.yaml",
+    "generated": {
+      "enabled": true,
+      "webClientOutDir": "apps/web/src/api/generated"
+    }
+  },
+  "migrations": {
+    "enabled": true,
+    "tool": "flyway",
+    "location": "apps/server/src/main/resources/db/migration",
+    "naming": {
+      "mode": "timestamp",
+      "pattern": "^V\\d{14}__([a-z0-9]+(-[a-z0-9]+)*)\\.sql$",
+      "example": "V20260109103045__create_user_table.sql"
+    },
+    "rules": {
+      "noOutOfOrder": true,
+      "noRepeatable": true,
+      "nonEmptySql": true
+    }
+  },
+  "demo": {
+    "enabled": true,
+    "todo": {
+      "todoId": "TODO-9001",
+      "title": "Health Check API + Web Display",
+      "scopeIn": [
+        "新增 GET /health 接口，返回 {status:'ok', time:'ISO8601'}",
+        "web 页面展示 health 状态与时间",
+        "openapi.yaml 与 error-codes.json（如需要）同步",
+        "通过 scripts/check"
+      ],
+      "scopeOut": [
+        "不做登录鉴权",
+        "不做国际化",
+        "不做复杂 UI 设计"
+      ]
+    }
+  }
+}

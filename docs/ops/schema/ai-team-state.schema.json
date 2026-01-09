@@ -1,0 +1,350 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ai-team-state.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "project",
+    "workflow",
+    "epics"
+  ],
+  "properties": {
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "repoType",
+        "stack"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "repoType": {
+          "const": "monorepo"
+        },
+        "stack": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "web",
+            "server"
+          ],
+          "properties": {
+            "web": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            },
+            "server": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            }
+          }
+        }
+      }
+    },
+    "workflow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "mergeStrategy",
+        "amendOnReviewFix",
+        "maxAutoFixCyclesPerTodo"
+      ],
+      "properties": {
+        "mode": {
+          "const": "full-auto"
+        },
+        "mergeStrategy": {
+          "enum": [
+            "squash"
+          ]
+        },
+        "amendOnReviewFix": {
+          "type": "boolean"
+        },
+        "maxAutoFixCyclesPerTodo": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        }
+      }
+    },
+    "epics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "epicId",
+          "title",
+          "features"
+        ],
+        "properties": {
+          "epicId": {
+            "type": "string",
+            "pattern": "^EPIC-\\d+$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "features": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "featureId",
+                "title",
+                "todos"
+              ],
+              "properties": {
+                "featureId": {
+                  "type": "string",
+                  "pattern": "^FEAT-\\d+$"
+                },
+                "title": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "todos": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "todoId",
+                      "title",
+                      "status",
+                      "scope",
+                      "acceptanceCriteria",
+                      "affectedAreas",
+                      "branch",
+                      "commits",
+                      "review",
+                      "gates",
+                      "fixCyclesUsed"
+                    ],
+                    "properties": {
+                      "todoId": {
+                        "type": "string",
+                        "pattern": "^TODO-\\d+$"
+                      },
+                      "title": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "status": {
+                        "enum": [
+                          "PLANNED",
+                          "DOING",
+                          "COMMITTED",
+                          "REVIEWING",
+                          "REVIEW_FAIL",
+                          "GATE_FAIL",
+                          "DONE",
+                          "BLOCKED",
+                          "ABORTED"
+                        ]
+                      },
+                      "scope": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "in",
+                          "out"
+                        ],
+                        "properties": {
+                          "in": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "minItems": 1
+                          },
+                          "out": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "minLength": 1
+                            },
+                            "minItems": 1
+                          }
+                        }
+                      },
+                      "acceptanceCriteria": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "minItems": 3
+                      },
+                      "affectedAreas": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "web",
+                          "server",
+                          "contract",
+                          "dbMigration"
+                        ],
+                        "properties": {
+                          "web": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "server": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "contract": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "dbMigration": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "branch": {
+                        "type": "string",
+                        "pattern": "^(feat|fix|chore)/TODO-\\d+-[a-z0-9]+(-[a-z0-9]+)*$"
+                      },
+                      "commits": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "pattern": "^[0-9a-f]{7,40}$"
+                        }
+                      },
+                      "review": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "lastResult",
+                          "blockers",
+                          "suggestions"
+                        ],
+                        "properties": {
+                          "lastResult": {
+                            "enum": [
+                              "PASS",
+                              "FAIL",
+                              "NONE"
+                            ]
+                          },
+                          "blockers": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "suggestions": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          }
+                        }
+                      },
+                      "gates": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "lint",
+                          "test",
+                          "build",
+                          "migrationCheck",
+                          "contractCheck",
+                          "stateSchemaCheck",
+                          "configSchemaCheck"
+                        ],
+                        "properties": {
+                          "lint": {
+                            "enum": [
+                              "PASS",
+                              "FAIL",
+                              "SKIP"
+                            ]
+                          },
+                          "test": {
+                            "enum": [
+                              "PASS",
+                              "FAIL",
+                              "SKIP"
+                            ]
+                          },
+                          "build": {
+                            "enum": [
+                              "PASS",
+                              "FAIL",
+                              "SKIP"
+                            ]
+                          },
+                          "migrationCheck": {
+                            "enum": [
+                              "PASS",
+                              "FAIL",
+                              "SKIP"
+                            ]
+                          },
+                          "contractCheck": {
+                            "enum": [
+                              "PASS",
+                              "FAIL",
+                              "SKIP"
+                            ]
+                          },
+                          "stateSchemaCheck": {
+                            "enum": [
+                              "PASS",
+                              "FAIL",
+                              "SKIP"
+                            ]
+                          },
+                          "configSchemaCheck": {
+                            "enum": [
+                              "PASS",
+                              "FAIL",
+                              "SKIP"
+                            ]
+                          }
+                        }
+                      },
+                      "fixCyclesUsed": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 20
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

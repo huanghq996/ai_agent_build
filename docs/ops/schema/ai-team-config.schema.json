@@ -1,0 +1,500 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ai-team-config.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "project",
+    "toolchain",
+    "workflow",
+    "gates",
+    "logging",
+    "contracts",
+    "migrations",
+    "demo"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "repoType",
+        "baseBranch",
+        "timezone"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "repoType": {
+          "const": "monorepo"
+        },
+        "baseBranch": {
+          "type": "string",
+          "minLength": 1
+        },
+        "timezone": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "toolchain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "node",
+        "java"
+      ],
+      "properties": {
+        "node": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "versionFile",
+            "packageManager",
+            "pnpmVersion",
+            "corepack"
+          ],
+          "properties": {
+            "versionFile": {
+              "type": "string",
+              "minLength": 1
+            },
+            "packageManager": {
+              "const": "pnpm"
+            },
+            "pnpmVersion": {
+              "type": "string",
+              "minLength": 1
+            },
+            "corepack": {
+              "type": "boolean"
+            }
+          }
+        },
+        "java": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "version",
+            "mavenWrapper",
+            "mavenArgs"
+          ],
+          "properties": {
+            "version": {
+              "type": "integer",
+              "const": 21
+            },
+            "mavenWrapper": {
+              "type": "boolean"
+            },
+            "mavenArgs": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "workflow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "usePR",
+        "requireRemote",
+        "mergeStrategy",
+        "amendOnReviewFix",
+        "maxAutoFixCyclesPerTodo",
+        "execution",
+        "git"
+      ],
+      "properties": {
+        "mode": {
+          "const": "full-auto"
+        },
+        "usePR": {
+          "type": "boolean"
+        },
+        "requireRemote": {
+          "type": "boolean"
+        },
+        "mergeStrategy": {
+          "enum": [
+            "squash"
+          ]
+        },
+        "amendOnReviewFix": {
+          "type": "boolean"
+        },
+        "maxAutoFixCyclesPerTodo": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 20
+        },
+        "execution": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "parallelTodos",
+            "maxParallel"
+          ],
+          "properties": {
+            "parallelTodos": {
+              "type": "boolean"
+            },
+            "maxParallel": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 8
+            }
+          }
+        },
+        "git": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "branchPrefix",
+            "branchTypes",
+            "commitScopes",
+            "allowRebase"
+          ],
+          "properties": {
+            "branchPrefix": {
+              "type": "string"
+            },
+            "branchTypes": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "feat",
+                  "fix",
+                  "chore"
+                ]
+              },
+              "minItems": 1
+            },
+            "commitScopes": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1
+            },
+            "allowRebase": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required",
+        "commands",
+        "policies"
+      ],
+      "properties": {
+        "required": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "commands": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "check",
+            "lint",
+            "test",
+            "build",
+            "migrationCheck",
+            "contractCheck",
+            "stateSchemaCheck",
+            "configSchemaCheck"
+          ],
+          "properties": {
+            "check": {
+              "type": "string",
+              "minLength": 1
+            },
+            "lint": {
+              "type": "string",
+              "minLength": 1
+            },
+            "test": {
+              "type": "string",
+              "minLength": 1
+            },
+            "build": {
+              "type": "string",
+              "minLength": 1
+            },
+            "migrationCheck": {
+              "type": "string",
+              "minLength": 1
+            },
+            "contractCheck": {
+              "type": "string",
+              "minLength": 1
+            },
+            "stateSchemaCheck": {
+              "type": "string",
+              "minLength": 1
+            },
+            "configSchemaCheck": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "policies": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "failFast",
+            "allowSkip",
+            "skipReasonRequired"
+          ],
+          "properties": {
+            "failFast": {
+              "type": "boolean"
+            },
+            "allowSkip": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "skipReasonRequired": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "logging": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dir",
+        "keepDays",
+        "keepLatestPerTodo",
+        "captureStdout",
+        "captureStderr",
+        "redactions"
+      ],
+      "properties": {
+        "dir": {
+          "type": "string",
+          "minLength": 1
+        },
+        "keepDays": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 365
+        },
+        "keepLatestPerTodo": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 500
+        },
+        "captureStdout": {
+          "type": "boolean"
+        },
+        "captureStderr": {
+          "type": "boolean"
+        },
+        "redactions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "enabled",
+            "patterns"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "patterns": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "contracts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "openapiPath",
+        "errorCodesPath",
+        "spectralRulesPath",
+        "generated"
+      ],
+      "properties": {
+        "openapiPath": {
+          "type": "string",
+          "minLength": 1
+        },
+        "errorCodesPath": {
+          "type": "string",
+          "minLength": 1
+        },
+        "spectralRulesPath": {
+          "type": "string",
+          "minLength": 1
+        },
+        "generated": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "enabled",
+            "webClientOutDir"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "webClientOutDir": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "migrations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enabled",
+        "tool",
+        "location",
+        "naming",
+        "rules"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "tool": {
+          "const": "flyway"
+        },
+        "location": {
+          "type": "string",
+          "minLength": 1
+        },
+        "naming": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "mode",
+            "pattern",
+            "example"
+          ],
+          "properties": {
+            "mode": {
+              "enum": [
+                "timestamp"
+              ]
+            },
+            "pattern": {
+              "type": "string",
+              "minLength": 1
+            },
+            "example": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "rules": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "noOutOfOrder",
+            "noRepeatable",
+            "nonEmptySql"
+          ],
+          "properties": {
+            "noOutOfOrder": {
+              "type": "boolean"
+            },
+            "noRepeatable": {
+              "type": "boolean"
+            },
+            "nonEmptySql": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "demo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "enabled",
+        "todo"
+      ],
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "todo": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "todoId",
+            "title",
+            "scopeIn",
+            "scopeOut"
+          ],
+          "properties": {
+            "todoId": {
+              "type": "string",
+              "pattern": "^TODO-\\d+$"
+            },
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "scopeIn": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1
+            },
+            "scopeOut": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,386 @@
+{
+  "project": {
+    "name": "agb-ai-team-system",
+    "repoType": "monorepo",
+    "stack": {
+      "web": [
+        "vue3",
+        "vite",
+        "tailwindcss",
+        "naive-ui",
+        "pinia",
+        "axios",
+        "qs",
+        "dayjs",
+        "js"
+      ],
+      "server": [
+        "spring-boot",
+        "java21",
+        "mysql",
+        "redis",
+        "mybatis-flex",
+        "flyway",
+        "openapi"
+      ]
+    }
+  },
+  "workflow": {
+    "mode": "full-auto",
+    "mergeStrategy": "squash",
+    "amendOnReviewFix": true,
+    "maxAutoFixCyclesPerTodo": 5
+  },
+  "epics": [
+    {
+      "epicId": "EPIC-1",
+      "title": "Implement AI Team System (V2)",
+      "features": [
+        {
+          "featureId": "FEAT-1",
+          "title": "Bootstrap in-repo implementation",
+          "todos": [
+            {
+              "todoId": "TODO-1001",
+              "title": "Init ops plan/state/config/schema skeleton",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "新增 docs/ops/plan.md（含步骤文件清单/验收命令/风险）",
+                  "落盘 docs/ops/ai-team-config.json 与 docs/ops/schema/ai-team-config.schema.json",
+                  "落盘 docs/ops/ai-team-state.json 与 docs/ops/schema/ai-team-state.schema.json",
+                  "新增 docs/ops/change-log.md"
+                ],
+                "out": [
+                  "不生成 apps/web、apps/server、packages/api-contract",
+                  "不生成 scripts/* 门禁脚本"
+                ]
+              },
+              "acceptanceCriteria": [
+                "python3 -m jsonschema 校验 ai-team-config.json PASS",
+                "python3 -m jsonschema 校验 ai-team-state.json PASS",
+                "docs/ops/plan.md 与 docs/ops/change-log.md 存在且可读"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [
+                  "docs/ops/*",
+                  "docs/ops/schema/*"
+                ],
+                "dbMigration": []
+              },
+              "branch": "chore/TODO-1001-init-ops-skeleton",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            },
+            {
+              "todoId": "TODO-1002",
+              "title": "Generate constitution docs/spec/* (deterministic reviewable)",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "生成 docs/spec/* 全部 7 个宪法文件",
+                  "REVIEW_CHECKLIST.md 每条规则可判定 PASS/FAIL",
+                  "WORKFLOW/DoD 与 V2 第 6/15 章对齐"
+                ],
+                "out": [
+                  "不实现业务代码（web/server）",
+                  "不实现 scripts/* 门禁"
+                ]
+              },
+              "acceptanceCriteria": [
+                "docs/spec 目录下 7 个文件齐全",
+                "REVIEW_CHECKLIST.md 存在 RULE_ID/CHECK_METHOD/PASS_CONDITION/FAIL_OUTPUT 字段",
+                "不得出现“建议/尽量/最好/视情况”等主观措辞"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [
+                  "docs/spec/*"
+                ],
+                "dbMigration": []
+              },
+              "branch": "chore/TODO-1002-add-constitution-docs",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            },
+            {
+              "todoId": "TODO-1003",
+              "title": "Scaffold monorepo template (web/server/contract)",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "新增根文件：.nvmrc、pnpm-workspace.yaml、package.json（含 required scripts）",
+                  "生成 apps/web（Vue3+Vite+Tailwind+NaiveUI+Pinia+Axios 目录骨架）",
+                  "生成 apps/server（Spring Boot + Java21 + Flyway 等工程骨架）",
+                  "生成 packages/api-contract（openapi.yaml、error-codes.json、.spectral.yaml）"
+                ],
+                "out": [
+                  "不做依赖下载/安装（不要求 pnpm install/mvn package）",
+                  "不接入 CI"
+                ]
+              },
+              "acceptanceCriteria": [
+                "V2 20.1 要求的文件路径齐全",
+                "openapi.yaml 可被 yaml 解析",
+                "error-codes.json 为合法 JSON"
+              ],
+              "affectedAreas": {
+                "web": [
+                  "apps/web/*",
+                  "package.json",
+                  "pnpm-workspace.yaml",
+                  ".nvmrc"
+                ],
+                "server": [
+                  "apps/server/*"
+                ],
+                "contract": [
+                  "packages/api-contract/*"
+                ],
+                "dbMigration": [
+                  "apps/server/src/main/resources/db/migration/*"
+                ]
+              },
+              "branch": "chore/TODO-1003-scaffold-monorepo-template",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            },
+            {
+              "todoId": "TODO-1004",
+              "title": "Add unified gate scripts (./scripts/*) and offline deterministic checks",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "实现 scripts: check/lint/test/build/migration-check/contract-check/state-validate/config-validate",
+                  "check 执行顺序与 V2 21.3 对齐，并记录完整日志到 docs/ops/logs",
+                  "门禁输出可机器判定（exit code + 摘要）"
+                ],
+                "out": [
+                  "不引入外网依赖下载",
+                  "不连接真实 MySQL/Redis（仅规则校验）"
+                ]
+              },
+              "acceptanceCriteria": [
+                "scripts 目录下 8 个脚本均可执行",
+                "./scripts/check exit=0 且生成 docs/ops/logs/system/<run>/ 证据",
+                "日志输出执行脱敏（password/token/secret/authorization）"
+              ],
+              "affectedAreas": {
+                "web": [
+                  "scripts/*",
+                  "tools/ai-team/gates/*"
+                ],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "chore/TODO-1004-add-gate-scripts",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            },
+            {
+              "todoId": "TODO-1005",
+              "title": "Implement skills: RunGates / GitOps / ContractSync / Report",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "提供可运行模块并可被 CLI 调用",
+                  "RunGates 可执行并将结果写回 ai-team-state.json.gates",
+                  "Report 可生成 docs/ops/delivery-report.md"
+                ],
+                "out": [
+                  "不接入远程 PR/CI 平台",
+                  "不实现 LLM Review（仅确定性审查）"
+                ]
+              },
+              "acceptanceCriteria": [
+                "node tools/ai-team/skills/run-gates.mjs --help 可运行",
+                "node tools/ai-team/skills/report.mjs --help 可运行",
+                "技能输出可被机器解析（JSON 或固定摘要）"
+              ],
+              "affectedAreas": {
+                "web": [
+                  "tools/ai-team/skills/*"
+                ],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1005-implement-skills",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            },
+            {
+              "todoId": "TODO-1006",
+              "title": "Implement main-loop CLI (scripts/ai-team) with V2 state machine",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "提供 ./scripts/ai-team CLI：init/plan/run/gates/report",
+                  "实现 V2 第 6 章状态机与日志证据落盘",
+                  "run 支持 --demo 驱动一次闭环"
+                ],
+                "out": [
+                  "不并发执行 todos（保持串行）",
+                  "不实现远程合并策略（仅本地 git 操作）"
+                ]
+              },
+              "acceptanceCriteria": [
+                "./scripts/ai-team --help 可运行",
+                "./scripts/ai-team init 幂等（重复执行无破坏性修改）",
+                "./scripts/ai-team plan --demo 能落盘 demo todos 到 state.json"
+              ],
+              "affectedAreas": {
+                "web": [
+                  "scripts/ai-team",
+                  "tools/ai-team/*"
+                ],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1006-main-loop-cli",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            },
+            {
+              "todoId": "TODO-1007",
+              "title": "Self-check: run demo loop and generate delivery report",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "执行 ./scripts/ai-team run --demo 完成一条示例闭环",
+                  "执行 ./scripts/check 并在交付报告中记录摘要",
+                  "生成 docs/ops/delivery-report.md"
+                ],
+                "out": [
+                  "不保证真实 DB 连通性验证（如环境受限需留痕）",
+                  "不启用 usePR 模式"
+                ]
+              },
+              "acceptanceCriteria": [
+                "./scripts/ai-team run --demo 结束时 demo todo 状态为 DONE 或输出阻断报告",
+                "./scripts/check exit=0",
+                "docs/ops/delivery-report.md 存在且包含 check 结果摘要"
+              ],
+              "affectedAreas": {
+                "web": [
+                  "docs/ops/delivery-report.md",
+                  "docs/ops/ai-team-state.json"
+                ],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "chore/TODO-1007-run-demo-and-report",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
