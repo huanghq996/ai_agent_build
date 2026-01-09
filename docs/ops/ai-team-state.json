@@ -964,7 +964,7 @@
             {
               "todoId": "TODO-1020",
               "title": "实现Web用户面板统计页面",
-              "status": "DOING",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "实现消费统计图表",
@@ -988,16 +988,18 @@
                 "dbMigration": []
               },
               "branch": "feat/TODO-1020-impl",
-              "commits": [],
+              "commits": [
+                "fa6a7ad"
+              ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
                 "migrationCheck": "SKIP",
                 "contractCheck": "SKIP",
                 "stateSchemaCheck": "SKIP",
@@ -1020,7 +1022,7 @@
             {
               "todoId": "TODO-1013",
               "title": "实现AI智能提取服务",
-              "status": "PLANNED",
+              "status": "DOING",
               "scope": {
                 "in": [
                   "实现AI配置管理",
