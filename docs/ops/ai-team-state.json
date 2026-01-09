@@ -918,7 +918,7 @@
             {
               "todoId": "TODO-1012",
               "title": "实现统计查询API",
-              "status": "DOING",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "实现消费统计接口",
@@ -942,16 +942,18 @@
                 "dbMigration": []
               },
               "branch": "feat/TODO-1012-impl",
-              "commits": [],
+              "commits": [
+                "f8d83c9"
+              ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
                 "migrationCheck": "SKIP",
                 "contractCheck": "SKIP",
                 "stateSchemaCheck": "SKIP",
@@ -962,7 +964,7 @@
             {
               "todoId": "TODO-1020",
               "title": "实现Web用户面板统计页面",
-              "status": "PLANNED",
+              "status": "DOING",
               "scope": {
                 "in": [
                   "实现消费统计图表",
