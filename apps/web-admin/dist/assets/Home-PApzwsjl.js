@@ -1,0 +1,1 @@
+import{a5 as n,a6 as s,ab as r}from"./index-C8cvjoeg.js";const l=(e,t)=>{const o=e.__vccOpts||e;for(const[a,c]of t)o[a]=c;return o},_={},d={class:"p-4"};function f(e,t){return r(),n("div",d,[...t[0]||(t[0]=[s("h1",{class:"text-2xl font-bold"},"AGB Admin",-1),s("p",{class:"mt-2 text-gray-600"},"管理面板",-1)])])}const p=l(_,[["render",f]]);export{p as default};

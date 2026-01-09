@@ -1,1 +1,0 @@
-import{c as r,a as s,o as a}from"./index-DzUNDKVB.js";const l=(e,t)=>{const o=e.__vccOpts||e;for(const[c,n]of t)o[c]=n;return o},_={},d={class:"p-4"};function f(e,t){return a(),r("div",d,[...t[0]||(t[0]=[s("h1",{class:"text-2xl font-bold"},"AGB Admin",-1),s("p",{class:"mt-2 text-gray-600"},"管理面板",-1)])])}const p=l(_,[["render",f]]);export{p as default};

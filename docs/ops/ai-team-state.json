@@ -382,7 +382,7 @@
             {
               "todoId": "TODO-1006",
               "title": "实现管理员用户体系",
-              "status": "DOING",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "创建管理员表和角色表",
@@ -406,16 +406,18 @@
                 "dbMigration": []
               },
               "branch": "feat/TODO-1006-impl",
-              "commits": [],
+              "commits": [
+                "89b77a6"
+              ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
                 "migrationCheck": "SKIP",
                 "contractCheck": "SKIP",
                 "stateSchemaCheck": "SKIP",
@@ -426,7 +428,7 @@
             {
               "todoId": "TODO-1016",
               "title": "实现Web管理面板登录页",
-              "status": "PLANNED",
+              "status": "DOING",
               "scope": {
                 "in": [
                   "实现管理员登录页面",
