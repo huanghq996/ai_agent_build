@@ -1,0 +1,7 @@
+.env
+node_modules
+**/node_modules
+apps/server/target
+**/target
+docs/ops/logs
+

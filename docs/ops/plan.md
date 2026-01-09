@@ -49,6 +49,7 @@
 - 新增：`.nvmrc`
 - 新增：`pnpm-workspace.yaml`
 - 新增：`package.json`
+- 新增：`.gitignore`
 - 新增：`apps/web/package.json`
 - 新增：`apps/web/index.html`
 - 新增：`apps/web/src/main.js`
@@ -56,7 +57,6 @@
 - 新增：`apps/web/src/api/http.js`
 - 新增：`apps/server/pom.xml`
 - 新增：`apps/server/src/main/java/com/example/agb/AgbApplication.java`
-- 新增：`apps/server/src/main/java/com/example/agb/controller/HealthController.java`
 - 新增：`apps/server/src/main/resources/application.yml`
 - 新增：`apps/server/src/main/resources/db/migration/.gitkeep`
 - 新增：`packages/api-contract/openapi.yaml`
@@ -149,4 +149,3 @@
 
 5. **日志泄露敏感信息（例如 `.env` 中 password）**
    - 规避：所有 `./scripts/*` 落盘日志前统一执行正则脱敏（按 `ai-team-config.json` 的 redactions.patterns），脱敏失败直接 FAIL。
-
