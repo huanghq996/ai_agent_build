@@ -93,7 +93,7 @@
             {
               "todoId": "TODO-1002",
               "title": "Generate constitution docs/spec/* (deterministic reviewable)",
-              "status": "PLANNED",
+              "status": "COMMITTED",
               "scope": {
                 "in": [
                   "生成 docs/spec/* 全部 7 个宪法文件",
@@ -119,7 +119,9 @@
                 "dbMigration": []
               },
               "branch": "chore/TODO-1002-add-constitution-docs",
-              "commits": [],
+              "commits": [
+                "c94c0f9"
+              ],
               "review": {
                 "lastResult": "NONE",
                 "blockers": [],
