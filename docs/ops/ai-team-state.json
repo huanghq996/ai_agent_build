@@ -520,7 +520,7 @@
             {
               "todoId": "TODO-1018",
               "title": "实现Web用户面板登录注册",
-              "status": "DOING",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "实现用户登录页面",
@@ -544,16 +544,18 @@
                 "dbMigration": []
               },
               "branch": "feat/TODO-1018-impl",
-              "commits": [],
+              "commits": [
+                "afab877"
+              ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
                 "migrationCheck": "SKIP",
                 "contractCheck": "SKIP",
                 "stateSchemaCheck": "SKIP",
@@ -576,7 +578,7 @@
             {
               "todoId": "TODO-1007",
               "title": "实现账本和分类管理API",
-              "status": "PLANNED",
+              "status": "DOING",
               "scope": {
                 "in": [
                   "创建账本表和分类表",
