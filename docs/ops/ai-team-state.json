@@ -97,7 +97,7 @@
             {
               "todoId": "TODO-1001",
               "title": "初始化后端Spring Boot项目",
-              "status": "DOING",
+              "status": "REVIEWING",
               "scope": {
                 "in": [
                   "创建apps/server目录结构",
@@ -123,9 +123,11 @@
                 "dbMigration": []
               },
               "branch": "feat/TODO-1001-impl",
-              "commits": [],
+              "commits": [
+                "a2f8a0e"
+              ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
