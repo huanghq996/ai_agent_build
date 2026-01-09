@@ -1074,7 +1074,7 @@
             {
               "todoId": "TODO-1014",
               "title": "实现快捷输入功能",
-              "status": "DOING",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "创建快捷输入配置表",
@@ -1098,16 +1098,18 @@
                 "dbMigration": []
               },
               "branch": "feat/TODO-1014-impl",
-              "commits": [],
+              "commits": [
+                "3aa7cb8"
+              ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
                 "migrationCheck": "SKIP",
                 "contractCheck": "SKIP",
                 "stateSchemaCheck": "SKIP",
