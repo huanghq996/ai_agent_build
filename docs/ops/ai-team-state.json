@@ -814,7 +814,7 @@
             {
               "todoId": "TODO-1010",
               "title": "实现抽烟记录API",
-              "status": "DOING",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "创建抽烟记录表",
@@ -838,16 +838,18 @@
                 "dbMigration": []
               },
               "branch": "feat/TODO-1010-impl",
-              "commits": [],
+              "commits": [
+                "883486d"
+              ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
                 "migrationCheck": "SKIP",
                 "contractCheck": "SKIP",
                 "stateSchemaCheck": "SKIP",
@@ -864,7 +866,7 @@
             {
               "todoId": "TODO-1011",
               "title": "实现日程管理API",
-              "status": "PLANNED",
+              "status": "DOING",
               "scope": {
                 "in": [
                   "创建日程表",
