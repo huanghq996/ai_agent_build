@@ -199,7 +199,7 @@
             {
               "todoId": "TODO-1004",
               "title": "Add unified gate scripts (./scripts/*) and offline deterministic checks",
-              "status": "PLANNED",
+              "status": "COMMITTED",
               "scope": {
                 "in": [
                   "实现 scripts: check/lint/test/build/migration-check/contract-check/state-validate/config-validate",
@@ -226,20 +226,22 @@
                 "dbMigration": []
               },
               "branch": "chore/TODO-1004-add-gate-scripts",
-              "commits": [],
+              "commits": [
+                "f076533"
+              ],
               "review": {
                 "lastResult": "NONE",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
-                "migrationCheck": "SKIP",
-                "contractCheck": "SKIP",
-                "stateSchemaCheck": "SKIP",
-                "configSchemaCheck": "SKIP"
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
+                "migrationCheck": "PASS",
+                "contractCheck": "PASS",
+                "stateSchemaCheck": "PASS",
+                "configSchemaCheck": "PASS"
               },
               "fixCyclesUsed": 0
             },
