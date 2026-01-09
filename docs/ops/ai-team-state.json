@@ -43,7 +43,7 @@
             {
               "todoId": "TODO-1001",
               "title": "Init ops plan/state/config/schema skeleton",
-              "status": "PLANNED",
+              "status": "COMMITTED",
               "scope": {
                 "in": [
                   "新增 docs/ops/plan.md（含步骤文件清单/验收命令/风险）",
@@ -71,7 +71,9 @@
                 "dbMigration": []
               },
               "branch": "chore/TODO-1001-init-ops-skeleton",
-              "commits": [],
+              "commits": [
+                "59a7fd9"
+              ],
               "review": {
                 "lastResult": "NONE",
                 "blockers": [],
@@ -83,8 +85,8 @@
                 "build": "SKIP",
                 "migrationCheck": "SKIP",
                 "contractCheck": "SKIP",
-                "stateSchemaCheck": "SKIP",
-                "configSchemaCheck": "SKIP"
+                "stateSchemaCheck": "PASS",
+                "configSchemaCheck": "PASS"
               },
               "fixCyclesUsed": 0
             },
@@ -383,4 +385,3 @@
     }
   ]
 }
-
