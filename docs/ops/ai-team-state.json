@@ -716,7 +716,7 @@
             {
               "todoId": "TODO-1015",
               "title": "实现App主页输入界面",
-              "status": "DOING",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "实现主页输入框组件",
@@ -740,16 +740,18 @@
                 "dbMigration": []
               },
               "branch": "feat/TODO-1015-impl",
-              "commits": [],
+              "commits": [
+                "1c32a16"
+              ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
                 "migrationCheck": "SKIP",
                 "contractCheck": "SKIP",
                 "stateSchemaCheck": "SKIP",
@@ -760,7 +762,7 @@
             {
               "todoId": "TODO-1019",
               "title": "实现Web用户面板记账页面",
-              "status": "PLANNED",
+              "status": "DOING",
               "scope": {
                 "in": [
                   "实现账单列表页面",

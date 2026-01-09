@@ -1,0 +1,1 @@
+import{c as n,a as s,o as a}from"./index-zn-alo2u.js";const l=(e,t)=>{const o=e.__vccOpts||e;for(const[c,r]of t)o[c]=r;return o},_={},f={class:"min-h-screen bg-gray-50 p-4"};function d(e,t){return a(),n("div",f,[...t[0]||(t[0]=[s("h1",{class:"text-xl font-bold"},"个人记录",-1),s("p",{class:"mt-2 text-gray-600"},"欢迎使用",-1)])])}const p=l(_,[["render",d]]);export{p as default};
