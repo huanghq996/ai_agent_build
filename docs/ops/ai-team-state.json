@@ -345,7 +345,7 @@
             {
               "todoId": "TODO-1007",
               "title": "Self-check: run demo loop and generate delivery report",
-              "status": "PLANNED",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "执行 ./scripts/ai-team run --demo 完成一条示例闭环",
@@ -372,20 +372,22 @@
                 "dbMigration": []
               },
               "branch": "chore/TODO-1007-run-demo-and-report",
-              "commits": [],
+              "commits": [
+                "b52d6db"
+              ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
-                "migrationCheck": "SKIP",
-                "contractCheck": "SKIP",
-                "stateSchemaCheck": "SKIP",
-                "configSchemaCheck": "SKIP"
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
+                "migrationCheck": "PASS",
+                "contractCheck": "PASS",
+                "stateSchemaCheck": "PASS",
+                "configSchemaCheck": "PASS"
               },
               "fixCyclesUsed": 0
             }
