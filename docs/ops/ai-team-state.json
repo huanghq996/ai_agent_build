@@ -97,7 +97,7 @@
             {
               "todoId": "TODO-1001",
               "title": "初始化后端Spring Boot项目",
-              "status": "REVIEWING",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "创建apps/server目录结构",
@@ -132,9 +132,9 @@
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
                 "migrationCheck": "SKIP",
                 "contractCheck": "SKIP",
                 "stateSchemaCheck": "SKIP",
@@ -145,7 +145,7 @@
             {
               "todoId": "TODO-1002",
               "title": "初始化Web管理面板项目",
-              "status": "PLANNED",
+              "status": "DOING",
               "scope": {
                 "in": [
                   "创建apps/web-admin目录",
