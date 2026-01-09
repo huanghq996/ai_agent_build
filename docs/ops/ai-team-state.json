@@ -145,7 +145,7 @@
             {
               "todoId": "TODO-1002",
               "title": "初始化Web管理面板项目",
-              "status": "DOING",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "创建apps/web-admin目录",
@@ -170,16 +170,18 @@
                 "dbMigration": []
               },
               "branch": "feat/TODO-1002-impl",
-              "commits": [],
+              "commits": [
+                "f9f1650"
+              ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
                 "migrationCheck": "SKIP",
                 "contractCheck": "SKIP",
                 "stateSchemaCheck": "SKIP",
@@ -190,7 +192,7 @@
             {
               "todoId": "TODO-1003",
               "title": "初始化Web用户面板项目",
-              "status": "PLANNED",
+              "status": "DOING",
               "scope": {
                 "in": [
                   "创建apps/web-user目录",
