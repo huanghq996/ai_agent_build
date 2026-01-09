@@ -336,7 +336,7 @@
             {
               "todoId": "TODO-1005",
               "title": "实现用户注册登录API",
-              "status": "DOING",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "创建用户表迁移脚本",
@@ -360,16 +360,18 @@
                 "dbMigration": []
               },
               "branch": "feat/TODO-1005-impl",
-              "commits": [],
+              "commits": [
+                "9b53e45"
+              ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
                 "migrationCheck": "SKIP",
                 "contractCheck": "SKIP",
                 "stateSchemaCheck": "SKIP",
@@ -380,7 +382,7 @@
             {
               "todoId": "TODO-1006",
               "title": "实现管理员用户体系",
-              "status": "PLANNED",
+              "status": "DOING",
               "scope": {
                 "in": [
                   "创建管理员表和角色表",
