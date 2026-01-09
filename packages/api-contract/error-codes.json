@@ -1,9 +1,0 @@
-[
-  {
-    "code": "SYS-0001",
-    "message": "系统错误",
-    "httpStatus": 500,
-    "deprecated": false
-  }
-]
-
