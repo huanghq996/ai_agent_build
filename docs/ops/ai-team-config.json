@@ -10,7 +10,7 @@
     "node": {
       "versionFile": ".nvmrc",
       "packageManager": "pnpm",
-      "pnpmVersion": "9.15.0",
+      "pnpmVersion": "10.27.0",
       "corepack": true
     },
     "java": {

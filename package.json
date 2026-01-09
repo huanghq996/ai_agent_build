@@ -1,7 +1,7 @@
 {
   "name": "agb-ai-team-system",
   "private": true,
-  "packageManager": "pnpm@9.15.0",
+  "packageManager": "pnpm@10.27.0",
   "type": "module",
   "scripts": {
     "lint": "node tools/ai-team/gates/lint.mjs",
@@ -13,4 +13,3 @@
     "config:validate": "python3 -m jsonschema -i docs/ops/ai-team-config.json docs/ops/schema/ai-team-config.schema.json"
   }
 }
-

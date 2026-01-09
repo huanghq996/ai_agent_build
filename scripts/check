@@ -1,0 +1,154 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT_DIR"
+
+source "./scripts/_lib.sh"
+
+print_plan=false
+selftest_redaction=false
+todo_id=""
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --print-plan) print_plan=true; shift ;;
+    --selftest-redaction) selftest_redaction=true; shift ;;
+    --todo) todo_id="$2"; shift 2 ;;
+    *) echo "Unknown arg: $1" >&2; exit 2 ;;
+  esac
+done
+
+if [[ -n "$todo_id" ]]; then
+  export AI_TEAM_TODO_ID="$todo_id"
+fi
+
+export AI_TEAM_RUN_ID="${AI_TEAM_RUN_ID:-$(ai_team_timestamp)}"
+
+if $print_plan; then
+  echo "config-validate -> state-validate -> contract-check -> migration-check -> lint -> test -> build"
+  exit 0
+fi
+
+if $selftest_redaction; then
+  tmp_in="$(mktemp)"
+  tmp_out="$(mktemp)"
+  cat >"$tmp_in" <<'EOF'
+password: abc123
+token=def456
+secret: ghi789
+authorization: Bearer xyz
+EOF
+  ai_team_redact_file "$tmp_in" "$tmp_out" >/dev/null
+  if rg -n "(abc123|def456|ghi789|Bearer xyz)" "$tmp_out" >/dev/null 2>&1; then
+    echo "LOG_REDACTION_FAIL"
+    rm -f "$tmp_in" "$tmp_out"
+    exit 1
+  fi
+  echo "REDACTION_SELFTEST_OK"
+  rm -f "$tmp_in" "$tmp_out"
+  exit 0
+fi
+
+log_base="$(ai_team_log_base_dir)"
+todo_for_logs="${AI_TEAM_TODO_ID:-system}"
+run_dir="${log_base}/${todo_for_logs}/${AI_TEAM_RUN_ID}"
+mkdir -p "$run_dir"
+run_log="${run_dir}/run.log"
+
+echo "CHECK_START run=${AI_TEAM_RUN_ID} todo=${todo_for_logs}" | tee -a "$run_log" >/dev/null
+
+# log prune (best-effort; never fails the gates)
+keep_days="$(ai_team_get_config_field "logging.keepDays")"
+keep_latest="$(ai_team_get_config_field "logging.keepLatestPerTodo")"
+
+python3 - <<'PY' "$log_base" "$keep_days" "$keep_latest" >/dev/null 2>&1 || true
+import os
+import shutil
+import sys
+from datetime import datetime, timedelta
+from pathlib import Path
+
+log_base = Path(sys.argv[1])
+keep_days = int(sys.argv[2])
+keep_latest = int(sys.argv[3])
+
+if not log_base.exists():
+    sys.exit(0)
+
+cutoff = datetime.now() - timedelta(days=keep_days)
+
+def parse_run_dir_name(name: str) -> datetime | None:
+    try:
+        return datetime.strptime(name, "%Y%m%d-%H%M%S")
+    except ValueError:
+        return None
+
+for todo_dir in log_base.iterdir():
+    if not todo_dir.is_dir():
+        continue
+    runs = []
+    for run_dir in todo_dir.iterdir():
+        if not run_dir.is_dir():
+            continue
+        dt = parse_run_dir_name(run_dir.name)
+        if dt is None:
+            continue
+        runs.append((dt, run_dir))
+    runs.sort(key=lambda x: x[0], reverse=True)
+
+    # keep latest N
+    for _, run_dir in runs[keep_latest:]:
+        shutil.rmtree(run_dir, ignore_errors=True)
+
+    # remove older than keepDays
+    for dt, run_dir in runs[:keep_latest]:
+        if dt < cutoff:
+            shutil.rmtree(run_dir, ignore_errors=True)
+PY
+
+set +e
+./scripts/config-validate | tee -a "$run_log"
+config_ec=$?
+if [[ $config_ec -ne 0 ]]; then
+  exit "$config_ec"
+fi
+
+./scripts/state-validate | tee -a "$run_log"
+state_ec=$?
+if [[ $state_ec -ne 0 ]]; then
+  exit "$state_ec"
+fi
+
+./scripts/contract-check | tee -a "$run_log"
+contract_ec=$?
+if [[ $contract_ec -ne 0 ]]; then
+  exit "$contract_ec"
+fi
+
+./scripts/migration-check | tee -a "$run_log"
+mig_ec=$?
+if [[ $mig_ec -ne 0 ]]; then
+  exit "$mig_ec"
+fi
+
+./scripts/lint | tee -a "$run_log"
+lint_ec=$?
+if [[ $lint_ec -ne 0 ]]; then
+  exit "$lint_ec"
+fi
+
+./scripts/test | tee -a "$run_log"
+test_ec=$?
+if [[ $test_ec -ne 0 ]]; then
+  exit "$test_ec"
+fi
+
+./scripts/build | tee -a "$run_log"
+build_ec=$?
+if [[ $build_ec -ne 0 ]]; then
+  exit "$build_ec"
+fi
+set -e
+
+echo "CHECK PASS run=${AI_TEAM_RUN_ID} todo=${AI_TEAM_TODO_ID:-system}"
