@@ -624,7 +624,7 @@
             {
               "todoId": "TODO-1008",
               "title": "实现账单记录API",
-              "status": "DOING",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "创建账单记录表",
@@ -648,16 +648,18 @@
                 "dbMigration": []
               },
               "branch": "feat/TODO-1008-impl",
-              "commits": [],
+              "commits": [
+                "e6e4c22"
+              ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
                 "migrationCheck": "SKIP",
                 "contractCheck": "SKIP",
                 "stateSchemaCheck": "SKIP",
@@ -668,7 +670,7 @@
             {
               "todoId": "TODO-1009",
               "title": "实现借贷记录API",
-              "status": "PLANNED",
+              "status": "DOING",
               "scope": {
                 "in": [
                   "创建借贷记录表",
