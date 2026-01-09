@@ -89,3 +89,22 @@
 - 环境缺失关键能力且无法继续 → `BLOCKED`
 - 发现需求与技术栈矛盾且无法在 scope 内解决 → `BLOCKED`
 
+## 8. ralph-loop 集成
+
+### 8.1 启动命令
+```bash
+/ralph-loop "执行 AI 团队主循环" --max-iterations 100
+```
+
+### 8.2 循环逻辑
+每次迭代：
+1. 运行 `python3 tools/state_manager.py get-current-action`
+2. 根据返回值执行对应动作
+3. 更新状态文件
+4. 输出状态摘要
+
+### 8.3 终止条件
+- `ALL_DONE`：所有 Todo 完成
+- `BLOCKED`：达到修复上限
+- 达到 max-iterations
+
