@@ -866,7 +866,7 @@
             {
               "todoId": "TODO-1011",
               "title": "实现日程管理API",
-              "status": "DOING",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "创建日程表",
@@ -890,16 +890,18 @@
                 "dbMigration": []
               },
               "branch": "feat/TODO-1011-impl",
-              "commits": [],
+              "commits": [
+                "7e6c1c9"
+              ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
                 "migrationCheck": "SKIP",
                 "contractCheck": "SKIP",
                 "stateSchemaCheck": "SKIP",
@@ -916,7 +918,7 @@
             {
               "todoId": "TODO-1012",
               "title": "实现统计查询API",
-              "status": "PLANNED",
+              "status": "DOING",
               "scope": {
                 "in": [
                   "实现消费统计接口",
