@@ -474,7 +474,7 @@
             {
               "todoId": "TODO-1017",
               "title": "实现Web管理面板用户管理",
-              "status": "DOING",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "实现用户列表页面",
@@ -498,16 +498,18 @@
                 "dbMigration": []
               },
               "branch": "feat/TODO-1017-impl",
-              "commits": [],
+              "commits": [
+                "1af3461"
+              ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
                 "migrationCheck": "SKIP",
                 "contractCheck": "SKIP",
                 "stateSchemaCheck": "SKIP",
@@ -518,7 +520,7 @@
             {
               "todoId": "TODO-1018",
               "title": "实现Web用户面板登录注册",
-              "status": "PLANNED",
+              "status": "DOING",
               "scope": {
                 "in": [
                   "实现用户登录页面",
