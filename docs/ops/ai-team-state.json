@@ -141,7 +141,7 @@
             {
               "todoId": "TODO-1003",
               "title": "Scaffold monorepo template (web/server/contract)",
-              "status": "PLANNED",
+              "status": "COMMITTED",
               "scope": {
                 "in": [
                   "新增根文件：.nvmrc、pnpm-workspace.yaml、package.json（含 required scripts）",
@@ -177,7 +177,9 @@
                 ]
               },
               "branch": "chore/TODO-1003-scaffold-monorepo-template",
-              "commits": [],
+              "commits": [
+                "a6170fe"
+              ],
               "review": {
                 "lastResult": "NONE",
                 "blockers": [],
