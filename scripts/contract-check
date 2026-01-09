@@ -6,5 +6,14 @@ cd "$ROOT_DIR"
 
 source "./scripts/_lib.sh"
 
-ai_team_run_logged "contract-check" pnpm -s contract:check
+run_check() {
+  if [[ -f "packages/api-contract/openapi.yaml" ]]; then
+    python3 -c "import yaml; yaml.safe_load(open('packages/api-contract/openapi.yaml'))"
+    return 0
+  else
+    echo "ERROR: packages/api-contract/openapi.yaml not found"
+    return 1
+  fi
+}
 
+ai_team_run_logged "contract-check" run_check

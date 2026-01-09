@@ -31,5 +31,60 @@
     "amendOnReviewFix": true,
     "maxAutoFixCyclesPerTodo": 5
   },
-  "epics": []
+  "epics": [
+    {
+      "epicId": "EPIC-1",
+      "title": "Default Epic",
+      "features": [
+        {
+          "featureId": "FEAT-1",
+          "title": "Default Feature",
+          "todos": [
+            {
+              "todoId": "TODO-9001",
+              "title": "Health Check API",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "add /health endpoint",
+                  "add web display"
+                ],
+                "out": [
+                  "no auth"
+                ]
+              },
+              "acceptanceCriteria": [
+                "check pass",
+                "web shows status",
+                "api returns 200"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-9001-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

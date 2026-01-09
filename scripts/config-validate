@@ -6,5 +6,8 @@ cd "$ROOT_DIR"
 
 source "./scripts/_lib.sh"
 
-ai_team_run_logged "config-validate" pnpm -s config:validate
+run_check() {
+  python3 -m jsonschema -i docs/ops/ai-team-config.json docs/ops/schema/ai-team-config.schema.json
+}
 
+ai_team_run_logged "config-validate" run_check

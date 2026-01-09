@@ -6,5 +6,8 @@ cd "$ROOT_DIR"
 
 source "./scripts/_lib.sh"
 
-ai_team_run_logged "state-validate" pnpm -s state:validate
+run_check() {
+  python3 -m jsonschema -i docs/ops/ai-team-state.json docs/ops/schema/ai-team-state.schema.json
+}
 
+ai_team_run_logged "state-validate" run_check

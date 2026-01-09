@@ -93,7 +93,7 @@ ai_team_run_logged() {
   local log_file="${log_dir}/${gate_name}.log"
   local redact_tmp
   redact_tmp="$(mktemp)"
-  ai_team_redact_file "$tmp_file" "$redact_tmp" >/dev/null 2>&1 || {
+  ai_team_redact_file "$tmp_file" "$redact_tmp" || {
     rm -f "$tmp_file" "$redact_tmp"
     echo "GATE ${gate_name} FAIL (redaction) log=${log_file}"
     return 2
