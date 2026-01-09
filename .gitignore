@@ -5,3 +5,5 @@ apps/server/target
 **/target
 docs/ops/logs
 .cache
+__pycache__
+*.pyc

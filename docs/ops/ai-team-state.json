@@ -261,8 +261,8 @@
                 ]
               },
               "acceptanceCriteria": [
-                "node tools/ai-team/skills/run-gates.mjs --help 可运行",
-                "node tools/ai-team/skills/report.mjs --help 可运行",
+                "python3 tools/ai-team/skills/run_gates.py --help 可运行",
+                "python3 tools/ai-team/skills/report.py --help 可运行",
                 "技能输出可被机器解析（JSON 或固定摘要）"
               ],
               "affectedAreas": {

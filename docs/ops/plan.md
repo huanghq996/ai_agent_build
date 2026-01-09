@@ -92,13 +92,13 @@
 ## 14.5 实现 skills：RunGates、GitOps、ContractSync、Report
 
 ### 文件清单（新增/修改）
-- 新增：`tools/ai-team/skills/run-gates.mjs`
-- 新增：`tools/ai-team/skills/git-ops.mjs`
-- 新增：`tools/ai-team/skills/contract-sync.mjs`
-- 新增：`tools/ai-team/skills/report.mjs`
+- 新增：`tools/ai-team/skills/run_gates.py`
+- 新增：`tools/ai-team/skills/git_ops.py`
+- 新增：`tools/ai-team/skills/contract_sync.py`
+- 新增：`tools/ai-team/skills/report.py`
 
 ### 验收命令
-- `node tools/ai-team/skills/run-gates.mjs --help`
+- `python3 tools/ai-team/skills/run_gates.py --help`
 
 ---
 
