@@ -3,26 +3,7 @@ info:
   title: AGB API
   version: 0.1.0
 servers:
-- url: http://localhost:8080
-paths:
-  /health:
-    get:
-      operationId: getHealth
-      summary: Health check
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                - status
-                - time
-                properties:
-                  status:
-                    type: string
-                  time:
-                    type: string
+  - url: http://localhost:8080
+paths: {}
 components:
   schemas: {}
