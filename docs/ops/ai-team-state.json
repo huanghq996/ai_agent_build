@@ -296,7 +296,7 @@
             {
               "todoId": "TODO-1006",
               "title": "Implement main-loop CLI (scripts/ai-team) with V2 state machine",
-              "status": "PLANNED",
+              "status": "COMMITTED",
               "scope": {
                 "in": [
                   "提供 ./scripts/ai-team CLI：init/plan/run/gates/report",
@@ -323,20 +323,22 @@
                 "dbMigration": []
               },
               "branch": "feat/TODO-1006-main-loop-cli",
-              "commits": [],
+              "commits": [
+                "768fb73"
+              ],
               "review": {
                 "lastResult": "NONE",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
-                "migrationCheck": "SKIP",
-                "contractCheck": "SKIP",
-                "stateSchemaCheck": "SKIP",
-                "configSchemaCheck": "SKIP"
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
+                "migrationCheck": "PASS",
+                "contractCheck": "PASS",
+                "stateSchemaCheck": "PASS",
+                "configSchemaCheck": "PASS"
               },
               "fixCyclesUsed": 0
             },
