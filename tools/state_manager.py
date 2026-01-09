@@ -58,30 +58,64 @@ def cmd_update_status(args):
             
     save_state(state)
 
+def cmd_add_epic(args):
+    """添加新的 Epic"""
+    state = load_state()
+    epics = state.setdefault("epics", [])
+
+    # 检查是否已存在
+    if any(e["epicId"] == args.epic_id for e in epics):
+        print(f"ERROR: Epic {args.epic_id} already exists.", file=sys.stderr)
+        sys.exit(1)
+
+    epic = {"epicId": args.epic_id, "title": args.title, "features": []}
+    epics.append(epic)
+    save_state(state)
+    print(f"SUCCESS: Added Epic {args.epic_id}")
+
+def cmd_add_feature(args):
+    """添加新的 Feature 到指定 Epic"""
+    state = load_state()
+    epics = state.get("epics", [])
+
+    epic = next((e for e in epics if e["epicId"] == args.epic_id), None)
+    if not epic:
+        print(f"ERROR: Epic {args.epic_id} not found.", file=sys.stderr)
+        sys.exit(1)
+
+    features = epic.setdefault("features", [])
+    if any(f["featureId"] == args.feature_id for f in features):
+        print(f"ERROR: Feature {args.feature_id} already exists.", file=sys.stderr)
+        sys.exit(1)
+
+    feature = {"featureId": args.feature_id, "title": args.title, "todos": []}
+    features.append(feature)
+    save_state(state)
+    print(f"SUCCESS: Added Feature {args.feature_id} to {args.epic_id}")
+
 def cmd_add_todo(args):
     state = load_state()
-    # Simple logic: add to first feature of first epic for now, or find specific parent
-    # Ideally should specify epic/feature ID
-    
-    epic_id = "EPIC-1" # Default fallback
-    feat_id = "FEAT-1" # Default fallback
-    
+
+    # 支持指定 epic 和 feature (argparse 将 --epic-id 转为 epic_id)
+    epic_id = getattr(args, 'epic_id', None) or "EPIC-1"
+    feat_id = getattr(args, 'feature_id', None) or "FEAT-1"
+
     target_feature = None
-    
-    # Ensure EPIC-1 exists
+
+    # Ensure Epic exists
     epics = state.setdefault("epics", [])
     epic = next((e for e in epics if e["epicId"] == epic_id), None)
     if not epic:
         epic = {"epicId": epic_id, "title": "Default Epic", "features": []}
         epics.append(epic)
-    
-    # Ensure FEAT-1 exists
+
+    # Ensure Feature exists
     features = epic.setdefault("features", [])
     feature = next((f for f in features if f["featureId"] == feat_id), None)
     if not feature:
         feature = {"featureId": feat_id, "title": "Default Feature", "todos": []}
         features.append(feature)
-        
+
     target_feature = feature
     
     new_todo = {
@@ -253,10 +287,23 @@ def main():
     p_update.add_argument("status", choices=["PLANNED","DOING","COMMITTED","REVIEWING","REVIEW_FAIL","GATE_FAIL","DONE","BLOCKED","ABORTED"])
     p_update.add_argument("--commit", help="Commit hash to add")
     
+    # add-epic
+    p_epic = subparsers.add_parser("add-epic")
+    p_epic.add_argument("epic_id")
+    p_epic.add_argument("title")
+
+    # add-feature
+    p_feat = subparsers.add_parser("add-feature")
+    p_feat.add_argument("epic_id")
+    p_feat.add_argument("feature_id")
+    p_feat.add_argument("title")
+
     # add-todo
     p_add = subparsers.add_parser("add-todo")
     p_add.add_argument("todo_id")
     p_add.add_argument("title")
+    p_add.add_argument("--epic-id", help="Epic ID")
+    p_add.add_argument("--feature-id", help="Feature ID")
     p_add.add_argument("--scope-in", action="append", required=True)
     p_add.add_argument("--scope-out", action="append", required=True)
     p_add.add_argument("--ac", action="append", required=True, help="Acceptance Criteria")
@@ -291,6 +338,10 @@ def main():
     
     if args.cmd == "update-status":
         cmd_update_status(args)
+    elif args.cmd == "add-epic":
+        cmd_add_epic(args)
+    elif args.cmd == "add-feature":
+        cmd_add_feature(args)
     elif args.cmd == "add-todo":
         cmd_add_todo(args)
     elif args.cmd == "read-next":

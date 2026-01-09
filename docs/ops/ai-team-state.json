@@ -85,6 +85,999 @@
           ]
         }
       ]
+    },
+    {
+      "epicId": "EPIC-2",
+      "title": "个人记录App - 基础设施",
+      "features": [
+        {
+          "featureId": "FEAT-2",
+          "title": "项目初始化与基础架构",
+          "todos": [
+            {
+              "todoId": "TODO-1001",
+              "title": "初始化后端Spring Boot项目",
+              "status": "DOING",
+              "scope": {
+                "in": [
+                  "创建apps/server目录结构",
+                  "配置Spring Boot 3.x + Java 21",
+                  "配置MySQL和Redis连接",
+                  "配置MyBatis-Flex",
+                  "配置Flyway迁移"
+                ],
+                "out": [
+                  "不实现具体业务逻辑",
+                  "不配置生产环境参数"
+                ]
+              },
+              "acceptanceCriteria": [
+                "mvn compile成功",
+                "应用能启动并连接数据库",
+                "Flyway迁移框架可用"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1001-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            },
+            {
+              "todoId": "TODO-1002",
+              "title": "初始化Web管理面板项目",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "创建apps/web-admin目录",
+                  "配置Vue3+Vite+TailwindCSS",
+                  "配置Naive UI组件库",
+                  "配置Pinia状态管理"
+                ],
+                "out": [
+                  "不实现具体页面",
+                  "不配置路由守卫"
+                ]
+              },
+              "acceptanceCriteria": [
+                "pnpm dev能启动",
+                "pnpm build成功",
+                "基础布局组件可用"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1002-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            },
+            {
+              "todoId": "TODO-1003",
+              "title": "初始化Web用户面板项目",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "创建apps/web-user目录",
+                  "配置Vue3+Vite+TailwindCSS",
+                  "配置移动端适配"
+                ],
+                "out": [
+                  "不实现具体页面",
+                  "不配置用户认证"
+                ]
+              },
+              "acceptanceCriteria": [
+                "pnpm dev能启动",
+                "pnpm build成功",
+                "响应式布局可用"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1003-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            },
+            {
+              "todoId": "TODO-1004",
+              "title": "初始化Android App项目",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "创建apps/android目录",
+                  "配置Kotlin+Jetpack Compose",
+                  "配置基础网络层Retrofit"
+                ],
+                "out": [
+                  "不实现具体页面",
+                  "不配置推送通知"
+                ]
+              },
+              "acceptanceCriteria": [
+                "gradle build成功",
+                "App能在模拟器运行",
+                "网络请求框架可用"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1004-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            },
+            {
+              "todoId": "TODO-1021",
+              "title": "配置Docker部署",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "创建后端Dockerfile",
+                  "创建Web应用Dockerfile",
+                  "创建docker-compose配置"
+                ],
+                "out": [
+                  "不配置K8s",
+                  "不配置CI/CD"
+                ]
+              },
+              "acceptanceCriteria": [
+                "docker build成功",
+                "docker-compose up可启动",
+                "服务间可正常通信"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1021-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            }
+          ]
+        },
+        {
+          "featureId": "FEAT-3",
+          "title": "用户认证体系",
+          "todos": [
+            {
+              "todoId": "TODO-1005",
+              "title": "实现用户注册登录API",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "创建用户表迁移脚本",
+                  "实现注册/登录/登出接口",
+                  "实现JWT token认证"
+                ],
+                "out": [
+                  "不实现OAuth第三方登录",
+                  "不实现短信验证码"
+                ]
+              },
+              "acceptanceCriteria": [
+                "POST /api/auth/register 可用",
+                "POST /api/auth/login 返回token",
+                "token验证中间件工作正常"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1005-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            },
+            {
+              "todoId": "TODO-1006",
+              "title": "实现管理员用户体系",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "创建管理员表和角色表",
+                  "实现管理员登录接口",
+                  "实现权限校验中间件"
+                ],
+                "out": [
+                  "不实现复杂RBAC",
+                  "不实现操作日志"
+                ]
+              },
+              "acceptanceCriteria": [
+                "管理员可登录后台",
+                "普通用户无法访问管理接口",
+                "权限校验正常工作"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1006-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            },
+            {
+              "todoId": "TODO-1016",
+              "title": "实现Web管理面板登录页",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "实现管理员登录页面",
+                  "实现token存储和刷新",
+                  "实现路由守卫"
+                ],
+                "out": [
+                  "不实现验证码",
+                  "不实现记住密码"
+                ]
+              },
+              "acceptanceCriteria": [
+                "管理员可登录",
+                "未登录跳转登录页",
+                "token过期自动处理"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1016-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            },
+            {
+              "todoId": "TODO-1017",
+              "title": "实现Web管理面板用户管理",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "实现用户列表页面",
+                  "实现用户详情查看",
+                  "实现用户禁用启用"
+                ],
+                "out": [
+                  "不实现批量操作",
+                  "不实现用户导出"
+                ]
+              },
+              "acceptanceCriteria": [
+                "可查看用户列表",
+                "可查看用户详情",
+                "可禁用启用用户"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1017-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            },
+            {
+              "todoId": "TODO-1018",
+              "title": "实现Web用户面板登录注册",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "实现用户登录页面",
+                  "实现用户注册页面",
+                  "实现token管理"
+                ],
+                "out": [
+                  "不实现第三方登录",
+                  "不实现找回密码"
+                ]
+              },
+              "acceptanceCriteria": [
+                "用户可注册账号",
+                "用户可登录",
+                "登录状态持久化"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1018-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "epicId": "EPIC-3",
+      "title": "个人记录App - 核心功能",
+      "features": [
+        {
+          "featureId": "FEAT-4",
+          "title": "记账功能",
+          "todos": [
+            {
+              "todoId": "TODO-1007",
+              "title": "实现账本和分类管理API",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "创建账本表和分类表",
+                  "实现账本CRUD接口",
+                  "实现一二级分类管理"
+                ],
+                "out": [
+                  "不实现分类图标上传",
+                  "不实现账本分享"
+                ]
+              },
+              "acceptanceCriteria": [
+                "用户可创建多个账本",
+                "系统内置默认分类",
+                "支持自定义分类"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1007-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            },
+            {
+              "todoId": "TODO-1008",
+              "title": "实现账单记录API",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "创建账单记录表",
+                  "实现账单CRUD接口",
+                  "支持备注和标签"
+                ],
+                "out": [
+                  "不实现账单图片附件",
+                  "不实现账单导出"
+                ]
+              },
+              "acceptanceCriteria": [
+                "可创建收入支出记录",
+                "支持添加备注和tag",
+                "账单关联账本和分类"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1008-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            },
+            {
+              "todoId": "TODO-1009",
+              "title": "实现借贷记录API",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "创建借贷记录表",
+                  "实现借入借出接口",
+                  "实现还款记录接口"
+                ],
+                "out": [
+                  "不实现利息计算",
+                  "不实现催款提醒"
+                ]
+              },
+              "acceptanceCriteria": [
+                "可记录借出和借入",
+                "可记录还款",
+                "可查询未结清借贷"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1009-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            },
+            {
+              "todoId": "TODO-1015",
+              "title": "实现App主页输入界面",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "实现主页输入框组件",
+                  "实现历史记录列表",
+                  "实现快捷按钮区域"
+                ],
+                "out": [
+                  "不实现语音输入",
+                  "不实现图片识别"
+                ]
+              },
+              "acceptanceCriteria": [
+                "输入框可提交文本",
+                "历史记录按时间展示",
+                "快捷按钮可点击"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1015-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            },
+            {
+              "todoId": "TODO-1019",
+              "title": "实现Web用户面板记账页面",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "实现账单列表页面",
+                  "实现账单添加编辑",
+                  "实现分类选择器"
+                ],
+                "out": [
+                  "不实现账单搜索",
+                  "不实现账单筛选"
+                ]
+              },
+              "acceptanceCriteria": [
+                "可查看账单列表",
+                "可添加编辑账单",
+                "可选择分类"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1019-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            }
+          ]
+        },
+        {
+          "featureId": "FEAT-5",
+          "title": "抽烟记录功能",
+          "todos": [
+            {
+              "todoId": "TODO-1010",
+              "title": "实现抽烟记录API",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "创建抽烟记录表",
+                  "实现记录CRUD接口",
+                  "支持记录时间和数量"
+                ],
+                "out": [
+                  "不实现戒烟计划",
+                  "不实现健康提醒"
+                ]
+              },
+              "acceptanceCriteria": [
+                "可记录抽烟时间",
+                "可查询历史记录",
+                "支持按日期统计"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1010-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            }
+          ]
+        },
+        {
+          "featureId": "FEAT-6",
+          "title": "日程管理功能",
+          "todos": [
+            {
+              "todoId": "TODO-1011",
+              "title": "实现日程管理API",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "创建日程表",
+                  "实现日程CRUD接口",
+                  "支持提醒时间设置"
+                ],
+                "out": [
+                  "不实现日历同步",
+                  "不实现重复日程"
+                ]
+              },
+              "acceptanceCriteria": [
+                "可创建日程事项",
+                "可设置提醒时间",
+                "可查询待办日程"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1011-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            }
+          ]
+        },
+        {
+          "featureId": "FEAT-7",
+          "title": "统计面板功能",
+          "todos": [
+            {
+              "todoId": "TODO-1012",
+              "title": "实现统计查询API",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "实现消费统计接口",
+                  "实现抽烟统计接口",
+                  "实现日程统计接口"
+                ],
+                "out": [
+                  "不实现图表数据导出",
+                  "不实现对比分析"
+                ]
+              },
+              "acceptanceCriteria": [
+                "可按日周月统计消费",
+                "可统计抽烟频率",
+                "可查看日程完成率"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1012-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            },
+            {
+              "todoId": "TODO-1020",
+              "title": "实现Web用户面板统计页面",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "实现消费统计图表",
+                  "实现抽烟统计图表",
+                  "实现日程完成统计"
+                ],
+                "out": [
+                  "不实现数据导出",
+                  "不实现自定义时间范围"
+                ]
+              },
+              "acceptanceCriteria": [
+                "可查看消费趋势图",
+                "可查看抽烟频率图",
+                "可查看日程完成率"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1020-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "epicId": "EPIC-4",
+      "title": "个人记录App - AI智能功能",
+      "features": [
+        {
+          "featureId": "FEAT-8",
+          "title": "AI智能提取功能",
+          "todos": [
+            {
+              "todoId": "TODO-1013",
+              "title": "实现AI智能提取服务",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "实现AI配置管理",
+                  "实现自然语言解析接口",
+                  "支持用户自定义AI端点"
+                ],
+                "out": [
+                  "不实现多模型切换",
+                  "不实现离线模型"
+                ]
+              },
+              "acceptanceCriteria": [
+                "用户可配置AI端点和key",
+                "可解析用户输入提取结构化数据",
+                "支持识别记账/抽烟/日程"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1013-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            }
+          ]
+        },
+        {
+          "featureId": "FEAT-9",
+          "title": "快捷输入功能",
+          "todos": [
+            {
+              "todoId": "TODO-1014",
+              "title": "实现快捷输入功能",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "创建快捷输入配置表",
+                  "实现快捷按钮CRUD",
+                  "实现AI分析生成建议"
+                ],
+                "out": [
+                  "不实现语音输入",
+                  "不实现手势快捷"
+                ]
+              },
+              "acceptanceCriteria": [
+                "用户可自定义快捷按钮",
+                "AI可分析生成常用快捷",
+                "点击快捷按钮可快速记录"
+              ],
+              "affectedAreas": {
+                "web": [],
+                "server": [],
+                "contract": [],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-1014-impl",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            }
+          ]
+        }
+      ]
     }
   ]
 }
