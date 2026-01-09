@@ -3,7 +3,7 @@
   "project": {
     "name": "agb-ai-team-system",
     "repoType": "monorepo",
-    "baseBranch": "main",
+    "baseBranch": "master",
     "timezone": "Asia/Shanghai"
   },
   "toolchain": {

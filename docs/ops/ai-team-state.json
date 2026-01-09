@@ -390,6 +390,70 @@
           ]
         }
       ]
+    },
+    {
+      "epicId": "EPIC-2",
+      "title": "Demo",
+      "features": [
+        {
+          "featureId": "FEAT-2",
+          "title": "Demo loop",
+          "todos": [
+            {
+              "todoId": "TODO-9001",
+              "title": "Health Check API + Web Display",
+              "status": "PLANNED",
+              "scope": {
+                "in": [
+                  "新增 GET /health 接口，返回 {status:'ok', time:'ISO8601'}",
+                  "web 页面展示 health 状态与时间",
+                  "openapi.yaml 与 error-codes.json（如需要）同步",
+                  "通过 scripts/check"
+                ],
+                "out": [
+                  "不做登录鉴权",
+                  "不做国际化",
+                  "不做复杂 UI 设计"
+                ]
+              },
+              "acceptanceCriteria": [
+                "./scripts/check PASS",
+                "Review PASS + Gates PASS",
+                "docs/ops/logs/<TODO-ID>/<run>/ 证据齐全"
+              ],
+              "affectedAreas": {
+                "web": [
+                  "apps/web/*"
+                ],
+                "server": [
+                  "apps/server/*"
+                ],
+                "contract": [
+                  "packages/api-contract/*"
+                ],
+                "dbMigration": []
+              },
+              "branch": "feat/TODO-9001-health-check-demo",
+              "commits": [],
+              "review": {
+                "lastResult": "NONE",
+                "blockers": [],
+                "suggestions": []
+              },
+              "gates": {
+                "lint": "SKIP",
+                "test": "SKIP",
+                "build": "SKIP",
+                "migrationCheck": "SKIP",
+                "contractCheck": "SKIP",
+                "stateSchemaCheck": "SKIP",
+                "configSchemaCheck": "SKIP"
+              },
+              "fixCyclesUsed": 0
+            }
+          ]
+        }
+      ]
     }
   ]
 }

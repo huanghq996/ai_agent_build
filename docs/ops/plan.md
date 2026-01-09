@@ -106,9 +106,10 @@
 
 ### 文件清单（新增/修改）
 - 新增：`scripts/ai-team`（CLI 入口）
-- 新增：`tools/ai-team/cli.mjs`
-- 新增：`tools/ai-team/state-store.mjs`
-- 新增：`tools/ai-team/review/deterministic-review.mjs`
+- 新增：`tools/ai-team/cli.py`
+- 新增：`tools/ai-team/state_store.py`
+- 新增：`tools/ai-team/logging_utils.py`
+- 新增：`tools/ai-team/deterministic_review.py`
 
 ### 验收命令
 - `./scripts/ai-team --help`
