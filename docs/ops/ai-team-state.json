@@ -43,7 +43,7 @@
             {
               "todoId": "TODO-9001",
               "title": "Health Check API",
-              "status": "PLANNED",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "add /health endpoint",
