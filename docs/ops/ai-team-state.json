@@ -578,7 +578,7 @@
             {
               "todoId": "TODO-1007",
               "title": "实现账本和分类管理API",
-              "status": "DOING",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "创建账本表和分类表",
@@ -602,16 +602,18 @@
                 "dbMigration": []
               },
               "branch": "feat/TODO-1007-impl",
-              "commits": [],
+              "commits": [
+                "9d8f21c"
+              ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
                 "migrationCheck": "SKIP",
                 "contractCheck": "SKIP",
                 "stateSchemaCheck": "SKIP",
@@ -622,7 +624,7 @@
             {
               "todoId": "TODO-1008",
               "title": "实现账单记录API",
-              "status": "PLANNED",
+              "status": "DOING",
               "scope": {
                 "in": [
                   "创建账单记录表",
