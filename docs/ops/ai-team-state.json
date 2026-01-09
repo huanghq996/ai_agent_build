@@ -404,7 +404,7 @@
             {
               "todoId": "TODO-9001",
               "title": "Health Check API + Web Display",
-              "status": "PLANNED",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "新增 GET /health 接口，返回 {status:'ok', time:'ISO8601'}",
@@ -436,22 +436,24 @@
                 "dbMigration": []
               },
               "branch": "feat/TODO-9001-health-check-demo",
-              "commits": [],
+              "commits": [
+                "f795104"
+              ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
-                "migrationCheck": "SKIP",
-                "contractCheck": "SKIP",
-                "stateSchemaCheck": "SKIP",
-                "configSchemaCheck": "SKIP"
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
+                "migrationCheck": "PASS",
+                "contractCheck": "PASS",
+                "stateSchemaCheck": "PASS",
+                "configSchemaCheck": "PASS"
               },
-              "fixCyclesUsed": 0
+              "fixCyclesUsed": 1
             }
           ]
         }
