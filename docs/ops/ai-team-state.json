@@ -284,7 +284,7 @@
             {
               "todoId": "TODO-1021",
               "title": "配置Docker部署",
-              "status": "DOING",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "创建后端Dockerfile",
@@ -308,16 +308,18 @@
                 "dbMigration": []
               },
               "branch": "feat/TODO-1021-impl",
-              "commits": [],
+              "commits": [
+                "f89a734"
+              ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
                 "migrationCheck": "SKIP",
                 "contractCheck": "SKIP",
                 "stateSchemaCheck": "SKIP",
@@ -334,7 +336,7 @@
             {
               "todoId": "TODO-1005",
               "title": "实现用户注册登录API",
-              "status": "PLANNED",
+              "status": "DOING",
               "scope": {
                 "in": [
                   "创建用户表迁移脚本",
