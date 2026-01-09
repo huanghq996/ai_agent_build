@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: agb
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  server:
+    build: ./apps/server
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+      - redis
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/agb
+      SPRING_DATA_REDIS_HOST: redis
+
+  web-admin:
+    build: ./apps/web-admin
+    ports:
+      - "3001:80"
+
+  web-user:
+    build: ./apps/web-user
+    ports:
+      - "3002:80"
+
+volumes:
+  mysql_data:

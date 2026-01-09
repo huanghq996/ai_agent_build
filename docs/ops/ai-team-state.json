@@ -238,7 +238,7 @@
             {
               "todoId": "TODO-1004",
               "title": "初始化Android App项目",
-              "status": "DOING",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "创建apps/android目录",
@@ -262,16 +262,18 @@
                 "dbMigration": []
               },
               "branch": "feat/TODO-1004-impl",
-              "commits": [],
+              "commits": [
+                "82fdca2"
+              ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
                 "migrationCheck": "SKIP",
                 "contractCheck": "SKIP",
                 "stateSchemaCheck": "SKIP",
@@ -282,7 +284,7 @@
             {
               "todoId": "TODO-1021",
               "title": "配置Docker部署",
-              "status": "PLANNED",
+              "status": "DOING",
               "scope": {
                 "in": [
                   "创建后端Dockerfile",
