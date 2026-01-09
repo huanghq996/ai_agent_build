@@ -1022,7 +1022,7 @@
             {
               "todoId": "TODO-1013",
               "title": "实现AI智能提取服务",
-              "status": "DOING",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "实现AI配置管理",
@@ -1046,16 +1046,18 @@
                 "dbMigration": []
               },
               "branch": "feat/TODO-1013-impl",
-              "commits": [],
+              "commits": [
+                "b4eaadb"
+              ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
                 "migrationCheck": "SKIP",
                 "contractCheck": "SKIP",
                 "stateSchemaCheck": "SKIP",
@@ -1072,7 +1074,7 @@
             {
               "todoId": "TODO-1014",
               "title": "实现快捷输入功能",
-              "status": "PLANNED",
+              "status": "DOING",
               "scope": {
                 "in": [
                   "创建快捷输入配置表",
