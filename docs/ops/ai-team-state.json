@@ -43,7 +43,7 @@
             {
               "todoId": "TODO-1001",
               "title": "Init ops plan/state/config/schema skeleton",
-              "status": "COMMITTED",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "新增 docs/ops/plan.md（含步骤文件清单/验收命令/风险）",
@@ -75,16 +75,16 @@
                 "59a7fd9"
               ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
-                "migrationCheck": "SKIP",
-                "contractCheck": "SKIP",
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
+                "migrationCheck": "PASS",
+                "contractCheck": "PASS",
                 "stateSchemaCheck": "PASS",
                 "configSchemaCheck": "PASS"
               },
@@ -93,7 +93,7 @@
             {
               "todoId": "TODO-1002",
               "title": "Generate constitution docs/spec/* (deterministic reviewable)",
-              "status": "COMMITTED",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "生成 docs/spec/* 全部 7 个宪法文件",
@@ -123,25 +123,25 @@
                 "c94c0f9"
               ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
-                "migrationCheck": "SKIP",
-                "contractCheck": "SKIP",
-                "stateSchemaCheck": "SKIP",
-                "configSchemaCheck": "SKIP"
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
+                "migrationCheck": "PASS",
+                "contractCheck": "PASS",
+                "stateSchemaCheck": "PASS",
+                "configSchemaCheck": "PASS"
               },
               "fixCyclesUsed": 0
             },
             {
               "todoId": "TODO-1003",
               "title": "Scaffold monorepo template (web/server/contract)",
-              "status": "COMMITTED",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "新增根文件：.nvmrc、pnpm-workspace.yaml、package.json（含 required scripts）",
@@ -181,25 +181,25 @@
                 "a6170fe"
               ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
               "gates": {
-                "lint": "SKIP",
-                "test": "SKIP",
-                "build": "SKIP",
-                "migrationCheck": "SKIP",
-                "contractCheck": "SKIP",
-                "stateSchemaCheck": "SKIP",
-                "configSchemaCheck": "SKIP"
+                "lint": "PASS",
+                "test": "PASS",
+                "build": "PASS",
+                "migrationCheck": "PASS",
+                "contractCheck": "PASS",
+                "stateSchemaCheck": "PASS",
+                "configSchemaCheck": "PASS"
               },
               "fixCyclesUsed": 0
             },
             {
               "todoId": "TODO-1004",
               "title": "Add unified gate scripts (./scripts/*) and offline deterministic checks",
-              "status": "COMMITTED",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "实现 scripts: check/lint/test/build/migration-check/contract-check/state-validate/config-validate",
@@ -230,7 +230,7 @@
                 "f076533"
               ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
@@ -248,7 +248,7 @@
             {
               "todoId": "TODO-1005",
               "title": "Implement skills: RunGates / GitOps / ContractSync / Report",
-              "status": "COMMITTED",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "提供可运行模块并可被 CLI 调用",
@@ -278,7 +278,7 @@
                 "c7bcb8e"
               ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
@@ -296,7 +296,7 @@
             {
               "todoId": "TODO-1006",
               "title": "Implement main-loop CLI (scripts/ai-team) with V2 state machine",
-              "status": "COMMITTED",
+              "status": "DONE",
               "scope": {
                 "in": [
                   "提供 ./scripts/ai-team CLI：init/plan/run/gates/report",
@@ -327,7 +327,7 @@
                 "768fb73"
               ],
               "review": {
-                "lastResult": "NONE",
+                "lastResult": "PASS",
                 "blockers": [],
                 "suggestions": []
               },
@@ -436,9 +436,10 @@
                 "dbMigration": []
               },
               "branch": "feat/TODO-9001-health-check-demo",
-              "commits": [
-                "f795104"
-              ],
+  "commits": [
+    "f795104",
+    "2b28f89"
+  ],
               "review": {
                 "lastResult": "PASS",
                 "blockers": [],
